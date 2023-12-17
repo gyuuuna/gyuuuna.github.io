@@ -1,0 +1,61 @@
+# Setup
+title: 규나의 블로그
+description: 개인 기록 블로그
+url: https://gyuuuna.github.io
+avatar: /avatar.jpeg
+paginate: 10
+permalink: pretty
+cover_image: /bg.jpeg
+
+# Gems
+plugins:
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Optimize Jekyll
+exclude:
+  - .editorconfig
+  - .git
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE.md
+  - README.md
+  - scripts/
+  - not-pure-poole.gemspec
+
+# Optimize Jekyl SEO Tag
+twitter:
+  username: cufftabril
+  card: summary
+logo: logo.png
+social:
+  name: Yoonah Park
+  links:
+    - https://x.com/cufftabril?t=vo-hEzzuOc_ir0QOUj0RjA&s=09
+    - https://github.com/gyuuuna
+google_site_verification: xxxxx
+lang: en
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+# Options
+
+# Replace this value and uncomment to enable Google Analytics tracking
+# google_analytics: UA-000000-0
+
+# Replace this value and uncomment to enable Disqus
+# disqus: xxxxxx
+
+# Specify the author for blog posts
+author:
+  name: gyuuuna
+  url: https://github.com/gyuuuna
+  email: wisdomsword21@snu.ac.kr
+
+comment: true

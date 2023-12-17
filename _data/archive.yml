@@ -1,0 +1,9 @@
+- type: recent
+  title: Recent
+  url: /recent/
+#- type: categories
+#  title: Categories
+#  url: /categories/
+- type: tags
+  title: Tags
+  url: /tags/
