@@ -1,7 +1,6 @@
 # Setup
 title: 규나의 블로그
 description: 개인 기록 블로그
-baseurl: https://gyuuuna.github.io
 url: https://gyuuuna.github.io
 avatar: /avatar.jpeg
 paginate: 10
