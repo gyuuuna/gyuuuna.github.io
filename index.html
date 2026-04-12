@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yoonah Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf9f7;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --accent: #2a5ba8;
+      --border: #e0ddd8;
+      --tag-bg: #eef2fa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: flex-start;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    header img {
+      width: 108px;
+      height: 108px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    header .info h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
+    }
+
+    header .info .role {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-family: 'DM Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.85rem;
+      font-family: 'DM Mono', monospace;
+    }
+    .links a { color: var(--muted); }
+    .links a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Sections */
+    section {
+      margin-bottom: 44px;
+    }
+
+    h2 {
+      font-size: 0.78rem;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* About */
+    .about p {
+      color: #333;
+      font-size: 1rem;
+    }
+
+    /* Publications */
+    .pub-group {
+      margin-bottom: 28px;
+    }
+
+    .pub-group h3 {
+      font-size: 0.72rem;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 12px;
+    }
+
+    .pub {
+      margin-bottom: 16px;
+      padding-left: 14px;
+      border-left: 2px solid var(--border);
+    }
+    .pub:hover { border-left-color: var(--accent); }
+
+    .pub .title {
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .pub .authors {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 2px 0;
+    }
+    .pub .authors strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pub .meta {
+      font-size: 0.82rem;
+      font-family: 'DM Mono', monospace;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .venue {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .tag {
+      background: var(--tag-bg);
+      color: var(--accent);
+      padding: 1px 7px;
+      border-radius: 3px;
+      font-size: 0.75rem;
+    }
+
+    .meta a {
+      color: #999;
+      font-size: 0.78rem;
+    }
+    .meta a:hover { color: var(--accent); }
+
+    /* Experience */
+    .exp {
+      margin-bottom: 16px;
+    }
+    .exp .place {
+      font-weight: 500;
+    }
+    .exp .role-period {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: #bbb;
+      font-family: 'DM Mono', monospace;
+      text-align: center;
+    }
+
+    @media (max-width: 540px) {
+      header { flex-direction: column; gap: 18px; }
+      header img { width: 80px; height: 80px; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <header>
+    <img src="assets/img/yoonah.jpg" alt="Yoonah Park" onerror="this.style.display='none'"/>
+    <div class="info">
+      <h1>Yoonah Park</h1>
+      <div class="role">M.S. in Data Science · Seoul National University</div>
+      <div class="links">
+        <a href="mailto:wisdomsword21@snu.ac.kr">Email</a>
+        <a href="https://scholar.google.com/citations?user=oLNnSjQAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <!-- <a href="https://github.com/yoonahpark" target="_blank">GitHub</a>
+        <a href="assets/cv.pdf" target="_blank">CV</a> -->
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about">
+    <h2>About</h2>
+    <p>
+      I am an M.S. student in Data Science at <a href="https://gsds.snu.ac.kr/" target="_blank">Seoul National University</a>,
+      advised by <a href="https://yohanjo.github.io/" target="_blank">Prof. Yohan Jo</a>.
+      I received my B.S. in Computer Science and Engineering from SNU.
+    </p>
+    <p style="margin-top:12px;">
+      My research interests lie in natural language processing, particularly: (1) interpretability and model surgery of large language models through representation analysis, and (2) personalized alignment of large language models.
+    </p>
+  </section>
+
+  <!-- Publications -->
+  <section>
+    <h2>Publications</h2>
+
+    <div class="pub-group">
+      <h3>Conference Papers</h3>
+
+      <div class="pub">
+        <div class="title">
+          A Framework for Personalized Persuasiveness Prediction via Context-Aware User Profiling
+        </div>
+        <div class="authors">
+          Sejun Park, <strong>Yoonah Park</strong>, Jongwon Lim, Yohan Jo
+        </div>
+        <div class="meta">
+          <span class="venue">ACL Findings 2026</span>
+          <span class="tag">To Appear</span>
+          <a href="https://arxiv.org/abs/2601.05654" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="title">
+            Improving Dialogue State Tracking through Combinatorial Search for In-Context Examples
+        </div>
+        <div class="authors">
+          Haesung Pyun, <strong>Yoonah Park</strong>, Yohan Jo
+        </div>
+        <div class="meta">
+          <span class="venue">ACL 2025</span>
+          <a href="https://arxiv.org/abs/2506.00622" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="title">
+            Cupid: Evaluating Personalized and Contextualized Alignment of LLMs from Interactions
+        </div>
+        <div class="authors">
+          Tae Soo Kim, Yoonjoo Lee, <strong>Yoonah Park</strong>, Jiho Kim, Young-Ho Kim, Juho Kim
+        </div>
+        <div class="meta">
+          <span class="venue">COLM 2025</span>
+          <a href="https://arxiv.org/abs/2508.01674" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-group">
+      <h3>Workshop Papers</h3>
+
+      <div class="pub">
+        <div class="title">
+          VLAAD: Vision and Language Assistant for Autonomous Driving
+        </div>
+        <div class="authors">
+          SungYeon Park, MinJae Lee, JiHyuk Kang, Hahyeon Choi, <strong>Yoonah Park</strong>, Juhwan Cho, Adam Lee, DongKyu Kim
+        </div>
+        <div class="meta">
+          <span class="venue">IEEE/CVF WACV Workshop 2024</span>
+          <a href="https://openaccess.thecvf.com/content/WACV2024W/LLVM-AD/html/Park_VLAAD_Vision_and_Language_Assistant_for_Autonomous_Driving_WACVW_2024_paper.html" target="_blank">[paper]</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-group">
+      <h3>Preprints</h3>
+
+      <div class="pub">
+        <div class="title">Human Psychometric Questionnaires Mischaracterize LLM Psychology: Evidence from Generation Behavior</div>
+        <div class="authors">Woojung Song, Dongmin Choi, <strong>Yoonah Park</strong>, Jongwook Han, Yohan Jo</div>
+        <div class="meta">
+            <span style="color:#aaa; font-size:0.8rem;">Preprint</span>
+            <a href="https://arxiv.org/abs/2509.10078" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="title">Bridging the Knowledge-Prediction Gap in LLMs on Multiple-Choice Questions</div>
+        <div class="authors"><strong>Yoonah Park</strong>, Haesung Pyun, Yohan Jo</div>
+        <div class="meta">
+            <span style="color:#aaa; font-size:0.8rem;">Preprint</span>
+            <a href="https://arxiv.org/abs/2509.23782" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="title">Expanding Search Space with Diverse Prompting Agents: An Efficient Sampling Approach for LLM Mathematical Reasoning</div>
+        <div class="authors">Gisang Lee, Sangwoo Park, Junyoung Park, Sieun Park, <strong>Yoonah Park</strong>, Byungju Kim, Min-gyu Cho</div>
+        <div class="meta">
+            <span style="color:#aaa; font-size:0.8rem;">Preprint</span>
+            <a href="https://arxiv.org/abs/2410.09780" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research Experience -->
+  <section>
+    <h2>Research Experience</h2>
+
+    <div class="exp">
+      <div class="place">HOLI Lab, Graduate School of Data Science, SNU</div>
+      <div class="role-period">Undergraduate Research Intern · Sep. 2024 – Aug. 2025 · Advisor: Prof. Yohan Jo</div>
+    </div>
+
+    <div class="exp">
+      <div class="place">KAIST Interaction Lab (KIXLAB), School of Computing, KAIST</div>
+      <div class="role-period">Undergraduate Research Intern · Jan. 2024 – Jun. 2024 · Advisor: Prof. Juho Kim</div>
+    </div>
+  </section>
+
+  <!-- Work Experience -->
+  <section>
+    <h2>Work Experience</h2>
+
+    <div class="exp">
+      <div class="place">Maum AI</div>
+      <div class="role-period">Machine Learning Research Intern · Jul. 2024 – Aug. 2024</div>
+    </div>
+
+    <div class="exp">
+      <div class="place">Invector</div>
+      <div class="role-period">Software Engineer Intern · Aug. 2023 – Dec. 2023</div>
+    </div>
+  </section>
+
+  <footer>
+    Last updated: April 2026
+  </footer>
+
+</div>
+</body>
+</html>
