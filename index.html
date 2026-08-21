@@ -33,7 +33,7 @@
     a:hover { text-decoration: underline; }
 
     .container {
-      max-width: 720px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 60px 28px 100px;
     }
@@ -117,15 +117,80 @@
 
     .pub {
       margin-bottom: 16px;
-      padding-left: 14px;
-      border-left: 2px solid var(--border);
+      padding-left: 17px;
+      position: relative;
     }
-    .pub:hover { border-left-color: var(--accent); }
+
+    .pub::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 3px;
+      background: var(--stripe, var(--border));
+    }
+
+    .stripe-human-alignment {
+      --stripe: #a9cdb8;
+    }
+
+    .stripe-interpretability-reasoning {
+      --stripe: linear-gradient(to bottom, #b8b1d7 0 50%, #e7c5a6 50% 100%);
+    }
+
+    .stripe-human-interpretability {
+      --stripe: linear-gradient(to bottom, #a9cdb8 0 50%, #b8b1d7 50% 100%);
+    }
+
+    .stripe-reasoning {
+      --stripe: #e7c5a6;
+    }
+
+    .stripe-multimodal {
+      --stripe: #adc9d9;
+    }
+
+    .topic-tags {
+      position: absolute;
+      top: 0;
+      right: calc(100% + 10px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(4px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .pub:hover .topic-tags {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .pub-title-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) max-content;
+      gap: 20px;
+      align-items: start;
+    }
 
     .pub .title {
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.45;
+    }
+
+    .keywords {
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 500;
+      line-height: 1.45;
+      text-align: right;
+      white-space: nowrap;
     }
 
     .pub .authors {
@@ -159,6 +224,26 @@
       padding: 1px 7px;
       border-radius: 3px;
       font-size: 0.75rem;
+    }
+
+    .tag-interpretability {
+      background: #f0eef8;
+      color: #625a93;
+    }
+
+    .tag-human-alignment {
+      background: #eaf4ef;
+      color: #3f775c;
+    }
+
+    .tag-reasoning {
+      background: #f9efe5;
+      color: #9a6840;
+    }
+
+    .tag-multimodal {
+      background: #e8f1f7;
+      color: #46718c;
     }
 
     .meta a {
@@ -201,6 +286,8 @@
     @media (max-width: 540px) {
       header { flex-direction: column; gap: 18px; }
       header img { width: 80px; height: 80px; }
+      .pub-title-row { grid-template-columns: 1fr; gap: 3px; }
+      .keywords { text-align: left; }
     }
   </style>
 </head>
@@ -231,20 +318,25 @@
       advised by <a href="https://yohanjo.github.io/" target="_blank">Prof. Yohan Jo</a>.
       I received my B.S. in Computer Science and Engineering from SNU.
     </p>
-    <p style="margin-top:12px;">
-      My research interests lie in artificial intelligence, with a focus on <strong>building
-      reliable and human-aligned LLM systems</strong>. In particular, I study:
+    <p style="margin-top:12px;"> 
+    My research explores how to make foundation language models <strong>more transparent and better aligned with humans</strong>.
     </p>
-    <ul style="margin-top:6px; padding-left:1.4em;">
+    <p>More specifically, I pursue human-centered AI research through a two-way lens of understanding:</p>
+    <!-- <p><strong>"humans understanding models</strong>, and <strong>models understanding humans"</strong></p> -->
+    <p><strong>1) Humans understanding models</strong></p>
+    <p>Understanding, explaining, and controlling model behaviors, failure modes, and internal states.</p>
+    <p><strong>2) Models understanding humans</strong></p> 
+    <p>Understanding human minds and social contexts, and adapting model behavior accordingly.</p>
+
+
+    <!-- <ul style="margin-top:6px; padding-left:1.4em;">
       <li>
-        <p><strong>interpretability and model surgery</strong> through representation analysis,
-        with the goal of detecting and controlling diverse failure modes of large language models</p>
+        <p><strong>Humans understanding models</strong> = Understanding, explaining, and controlling model behaviors, failure modes, and internal states.</p>
       </li>
       <li>
-        <p><strong>human alignment of LLM systems</strong>, with the goal of aligning models
-        with human values while respecting the plurality of individual preferences and perspectives</p>
+        <p><strong>Models Understanding humans</strong> = Enabling models to reason about human minds and social contexts, and to adapt to diverse human values and preferences.</p>
       </li>
-    </ul>
+    </ul> -->
   </section>
 
   <!-- Publications -->
@@ -254,19 +346,40 @@
     <div class="pub-group">
       <h3>Conference Papers</h3>
 
-      <div class="pub">
+      <div class="pub stripe-human-interpretability">
+        <div class="topic-tags">
+          <span class="tag tag-human-alignment">Human Alignment</span>
+          <span class="tag tag-interpretability">Interpretability</span>
+        </div>
+        <div class="title">Human Psychometric Questionnaires Mischaracterize LLM Psychology: Evidence from Generation Behavior</div>
+        <div class="authors">Woojung Song*, Dongmin Choi*, <strong>Yoonah Park</strong>, Jongwook Han, Eun-Ju Lee, Yohan Jo</div>
+        <div class="meta">
+            <span class="venue">EMNLP 2026</span>
+            <span class="tag">To Appear</span>
+            <a href="https://arxiv.org/abs/2509.10078" target="_blank">[arxiv]</a>
+        </div>
+      </div>
+
+      <div class="pub stripe-interpretability-reasoning">
+        <div class="topic-tags">
+          <span class="tag tag-interpretability">Mechanistic Interpretability</span>
+          <span class="tag tag-reasoning">Reasoning</span>
+        </div>
         <div class="title">
           Bridging the Knowledge-Prediction Gap in LLMs on Multiple-Choice Questions
         </div>
         <div class="authors"><strong>Yoonah Park</strong>*, Haesung Pyun*, Yohan Jo</div>
         <div class="meta">
           <span class="venue">ICML 2026</span>
-          <span class="tag">To Appear</span>
+          <a href="https://icml.cc/virtual/2026/poster/64992" target="_blank">[paper]</a>
           <a href="https://arxiv.org/abs/2509.23782" target="_blank">[arxiv]</a>
         </div>
       </div>
 
-      <div class="pub">
+      <div class="pub stripe-human-alignment">
+        <div class="topic-tags">
+          <span class="tag tag-human-alignment">Human Alignment</span>
+        </div>
         <div class="title">
           Learning to Retrieve User History and Generate User Profiles for Personalized Persuasiveness Prediction
         </div>
@@ -274,13 +387,16 @@
           Sejun Park, <strong>Yoonah Park</strong>, Jongwon Lim, Yohan Jo
         </div>
         <div class="meta">
-          <span class="venue">ACL Findings 2026</span>
-          <span class="tag">To Appear</span>
+          <span class="venue">ACL 2026 Findings</span>
+          <a href="https://aclanthology.org/2026.findings-acl.858/" target="_blank">[paper]</a>
           <a href="https://arxiv.org/abs/2601.05654" target="_blank">[arxiv]</a>
         </div>
       </div>
 
-      <div class="pub">
+      <div class="pub stripe-human-alignment">
+        <div class="topic-tags">
+          <span class="tag tag-human-alignment">Human Alignment</span>
+        </div>
         <div class="title">
             Cupid: Evaluating Personalized and Contextualized Alignment of LLMs from Interactions
         </div>
@@ -289,11 +405,15 @@
         </div>
         <div class="meta">
           <span class="venue">COLM 2025</span>
+          <a href="https://openreview.net/forum?id=JMxRn7orEk" target="_blank">[paper]</a>
           <a href="https://arxiv.org/abs/2508.01674" target="_blank">[arxiv]</a>
         </div>
       </div>
 
-      <div class="pub">
+      <div class="pub stripe-reasoning">
+        <div class="topic-tags">
+          <span class="tag tag-reasoning">Reasoning</span>
+        </div>
         <div class="title">
             Improving Dialogue State Tracking through Combinatorial Search for In-Context Examples
         </div>
@@ -302,6 +422,7 @@
         </div>
         <div class="meta">
           <span class="venue">ACL 2025</span>
+          <a href="https://aclanthology.org/2025.acl-long.1393/" target="_blank">[paper]</a>
           <a href="https://arxiv.org/abs/2506.00622" target="_blank">[arxiv]</a>
         </div>
       </div>
@@ -311,7 +432,10 @@
     <div class="pub-group">
       <h3>Workshop Papers</h3>
 
-      <div class="pub">
+      <div class="pub stripe-multimodal">
+        <div class="topic-tags">
+          <span class="tag tag-multimodal">Multimodal AI</span>
+        </div>
         <div class="title">
           VLAAD: Vision and Language Assistant for Autonomous Driving
         </div>
@@ -328,16 +452,10 @@
     <div class="pub-group">
       <h3>Preprints</h3>
 
-      <div class="pub">
-        <div class="title">Human Psychometric Questionnaires Mischaracterize LLM Psychology: Evidence from Generation Behavior</div>
-        <div class="authors">Woojung Song, Dongmin Choi, <strong>Yoonah Park</strong>, Jongwook Han, Eun-Ju Lee, Yohan Jo</div>
-        <div class="meta">
-            <span style="color:#aaa; font-size:0.8rem;">Preprint</span>
-            <a href="https://arxiv.org/abs/2509.10078" target="_blank">[arxiv]</a>
+      <div class="pub stripe-reasoning">
+        <div class="topic-tags">
+          <span class="tag tag-reasoning">Reasoning</span>
         </div>
-      </div>
-
-      <div class="pub">
         <div class="title">Expanding Search Space with Diverse Prompting Agents: An Efficient Sampling Approach for LLM Mathematical Reasoning</div>
         <div class="authors">Gisang Lee, Sangwoo Park, Junyoung Park, Sieun Park, <strong>Yoonah Park</strong>, Byungju Kim, Min-gyu Cho</div>
         <div class="meta">
@@ -375,6 +493,21 @@
     <div class="exp">
       <div class="place">Invector</div>
       <div class="role-period">Software Engineer Intern · Aug. 2023 – Dec. 2023</div>
+    </div>
+  </section>
+
+  <!-- Reviewing Service -->
+  <section>
+    <h2>Reviewing Service</h2>
+
+    <div class="exp">
+      <div class="place">ICML 2026 Pluralistic Alignment Workshop</div>
+      <div class="role-period">Reviewer</div>
+    </div>
+
+    <div class="exp">
+      <div class="place">ICML 2026 Mechanistic Interpretability Workshop</div>
+      <div class="role-period">Reviewer</div>
     </div>
   </section>
 
