@@ -189,7 +189,9 @@
       transition: opacity 160ms ease, transform 160ms ease;
     }
 
-    .pub:hover .topic-tags {
+    .pub:hover .topic-tags,
+    .pub.is-hovered .topic-tags,
+    .pub:focus-within .topic-tags {
       opacity: 1;
       transform: translateX(0);
     }
@@ -305,6 +307,14 @@
       .section-birds { width: 82px; height: 41px; }
       .pub-title-row { grid-template-columns: 1fr; gap: 3px; }
       .keywords { text-align: left; }
+      .topic-tags {
+        position: static;
+        align-items: flex-start;
+        margin-bottom: 5px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -533,5 +543,11 @@
   </footer>
 
 </div>
+<script>
+  document.querySelectorAll('.pub').forEach((publication) => {
+    publication.addEventListener('pointerenter', () => publication.classList.add('is-hovered'));
+    publication.addEventListener('pointerleave', () => publication.classList.remove('is-hovered'));
+  });
+</script>
 </body>
 </html>
