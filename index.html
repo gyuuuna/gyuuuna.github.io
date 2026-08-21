@@ -46,13 +46,12 @@
       margin-bottom: 48px;
     }
 
-    header img {
-      width: 108px;
-      height: 108px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--border);
+    header .profile-bird {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
       flex-shrink: 0;
+      margin-top: -14px;
     }
 
     header .info h1 {
@@ -70,14 +69,25 @@
     }
 
     .links {
-      display: flex;
+      display: inline-flex;
       flex-wrap: wrap;
-      gap: 14px;
-      font-size: 0.85rem;
+      gap: 6px;
+      width: fit-content;
+      font-size: 0.7rem;
       font-family: 'DM Mono', monospace;
     }
-    .links a { color: var(--muted); }
-    .links a:hover { color: var(--accent); text-decoration: none; }
+    .links a {
+      padding: 3px 7px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      background: #f0efec;
+      color: var(--muted);
+    }
+    .links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+    }
 
     /* Sections */
     section {
@@ -85,14 +95,28 @@
     }
 
     h2 {
+      display: flex;
+      align-items: center;
+      position: relative;
       font-size: 0.78rem;
       font-family: 'DM Mono', monospace;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--muted);
+      border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding-bottom: 8px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       margin-bottom: 20px;
+    }
+
+    .section-birds {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      width: 100px;
+      height: 50px;
+      object-fit: contain;
     }
 
     /* About */
@@ -265,14 +289,6 @@
       font-family: 'DM Mono', monospace;
     }
 
-    .links a {
-      margin-right: 20px;
-    }
-
-    .links a:last-child {
-      margin-right: 0;
-    }
-
     footer {
       margin-top: 60px;
       padding-top: 20px;
@@ -285,7 +301,8 @@
 
     @media (max-width: 540px) {
       header { flex-direction: column; gap: 18px; }
-      header img { width: 80px; height: 80px; }
+      header .profile-bird { width: 76px; height: 76px; margin-top: -8px; }
+      .section-birds { width: 82px; height: 41px; }
       .pub-title-row { grid-template-columns: 1fr; gap: 3px; }
       .keywords { text-align: left; }
     }
@@ -296,7 +313,7 @@
 
   <!-- Header -->
   <header>
-    <img src="assets/img/yoonah.jpg" alt="Yoonah Park" onerror="this.style.display='none'"/>
+    <img class="profile-bird" src="assets/cockatoo-profile.png" alt="Cute white cockatoo illustration"/>
     <div class="info">
       <h1>Yoonah Park</h1>
       <!-- <div class="role">M.S. Student in Data Science · Seoul National University</div> -->
@@ -312,7 +329,7 @@
 
   <!-- About -->
   <section class="about">
-    <h2>About</h2>
+    <h2>About <img class="section-birds" src="assets/birds-about.png" alt="White pigeon, male mallard, and budgerigar illustrations"/></h2>
     <p>
       I am a Ph.D. student in Data Science at <a href="https://gsds.snu.ac.kr/" target="_blank">Seoul National University</a>,
       advised by <a href="https://yohanjo.github.io/" target="_blank">Prof. Yohan Jo</a>.
@@ -341,7 +358,7 @@
 
   <!-- Publications -->
   <section>
-    <h2>Publications</h2>
+    <h2>Publications <img class="section-birds" src="assets/birds-publications.png" alt="Shoebill, horned puffin, and cockatiel illustrations"/></h2>
 
     <div class="pub-group">
       <h3>Conference Papers</h3>
@@ -468,7 +485,7 @@
 
   <!-- Research Experience -->
   <section>
-    <h2>Research Experience</h2>
+    <h2>Research Experience <img class="section-birds" src="assets/birds-research.png" alt="Kiwi, female mallard, and cockatoo illustrations"/></h2>
 
     <div class="exp">
       <div class="place">HOLI Lab, Graduate School of Data Science, SNU</div>
@@ -483,7 +500,7 @@
 
   <!-- Work Experience -->
   <section>
-    <h2>Work Experience</h2>
+    <h2>Work Experience <img class="section-birds" src="assets/birds-work.png" alt="Toucan, parakeet, and horned puffin illustrations"/></h2>
 
     <div class="exp">
       <div class="place">Maum AI</div>
@@ -498,7 +515,7 @@
 
   <!-- Reviewing Service -->
   <section>
-    <h2>Reviewing Service</h2>
+    <h2>Reviewing Service <img class="section-birds" src="assets/birds-reviewing.png" alt="Male mallard, white pigeon, and macaw illustrations"/></h2>
 
     <div class="exp">
       <div class="place">ICML 2026 Pluralistic Alignment Workshop</div>
