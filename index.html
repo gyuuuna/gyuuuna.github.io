@@ -113,9 +113,9 @@
     .section-birds {
       position: absolute;
       right: 0;
-      bottom: -8px;
-      width: 100px;
-      height: 50px;
+      bottom: 24px;
+      width: 78px;
+      height: 39px;
       object-fit: contain;
     }
 
@@ -124,6 +124,46 @@
       color: #333;
       font-size: 1rem;
     }
+
+    .research-figure {
+      display: block;
+      width: min(100%, 400px);
+      margin: 14px auto 18px;
+    }
+
+    .research-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .research-details {
+      margin-top: 2px;
+    }
+
+    .research-details summary {
+      width: fit-content;
+      margin: 0 auto;
+      padding: 0 2px;
+      color: var(--accent);
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 500;
+      list-style: none;
+      line-height: 1;
+    }
+
+    .research-details summary::-webkit-details-marker { display: none; }
+    .research-details summary:hover { color: #1a1a1a; }
+
+    .research-directions {
+      padding-top: 14px;
+    }
+
+    .research-direction + .research-direction { margin-top: 12px; }
+    .research-direction strong { font-size: 0.96rem; }
+    .research-direction p { margin-top: 1px; color: var(--muted); }
 
     /* Publications */
     .pub-group {
@@ -284,11 +324,12 @@
     }
     .exp .place {
       font-weight: 500;
+      font-size: 0.92rem;
     }
     .exp .role-period {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      font-family: 'DM Mono', monospace;
+      line-height: 1.5;
     }
 
     footer {
@@ -348,12 +389,28 @@
     <p style="margin-top:12px;"> 
     My research explores how to make foundation language models <strong>more transparent and better aligned with humans</strong>.
     </p>
-    <p>More specifically, I pursue human-centered AI research through a two-way lens of understanding:</p>
-    <!-- <p><strong>"humans understanding models</strong>, and <strong>models understanding humans"</strong></p> -->
-    <p><strong>1) Humans understanding models</strong></p>
-    <p>Understanding, explaining, and controlling model behaviors, failure modes, and internal states.</p>
-    <p><strong>2) Models understanding humans</strong></p> 
-    <p>Understanding human minds and social contexts, and adapting model behavior accordingly.</p>
+    <details class="research-details">
+      <summary aria-label="Show research directions">...</summary>
+      <div class="research-directions">
+        <p>Specifically, I pursue AI research centered on mutual understanding across humans and models, along three directions:</p>
+        <figure class="research-figure">
+          <img src="assets/human-ai-ai-triangle-examples-english.png" alt="A human and two AI models connected by arrows, showing mutual understanding through examples."/>
+        </figure>
+        <div class="research-direction">
+          <strong>1) Humans understanding models</strong>
+          <p>Understanding, explaining, and controlling model behaviors, failure modes, and internal states.</p>
+        </div>
+        <div class="research-direction">
+          <strong>2) Models understanding humans</strong>
+          <p>Understanding human minds and social contexts, and adapting model behavior accordingly.</p>
+        </div>
+        <div class="research-direction">
+          <strong>3) Models understanding models</strong>
+          <p>Understanding their own and other models' behaviors and capabilities to communicate, coordinate, and adapt effectively.</p>
+        </div>
+      </div>
+    </details>
+
 
 
     <!-- <ul style="margin-top:6px; padding-left:1.4em;">
@@ -523,19 +580,25 @@
     </div>
   </section>
 
-  <!-- Reviewing Service -->
   <section>
-    <h2>Reviewing Service <img class="section-birds" src="assets/birds-reviewing.png" alt="Male mallard, white pigeon, and macaw illustrations"/></h2>
+    <h2>Teaching & Services <img class="section-birds" src="assets/birds-reviewing.png" alt="Male mallard, white pigeon, and macaw illustrations"/></h2>
 
     <div class="exp">
-      <div class="place">ICML 2026 Pluralistic Alignment Workshop</div>
-      <div class="role-period">Reviewer</div>
+      <div class="place">Reviewer, ICML 2026 Pluralistic Alignment Workshop</div>
     </div>
 
     <div class="exp">
-      <div class="place">ICML 2026 Mechanistic Interpretability Workshop</div>
-      <div class="role-period">Reviewer</div>
+      <div class="place">Reviewer, ICML 2026 Mechanistic Interpretability Workshop</div>
     </div>
+
+    <div class="exp">
+      <div class="place">[Spring'26] Mentor, 3rd LG AI Youth Camp </div>
+    </div>
+
+    <div class="exp">
+      <div class="place">[Spring'25] Undergraduate TA, Core Computing, Seoul National University </div>
+    </div>
+
   </section>
 
   <footer>
