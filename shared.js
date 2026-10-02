@@ -9,6 +9,12 @@ fetch(contentUrl)
   .then((pageContent) => {
     const mount = document.querySelector('#page-content');
     mount.innerHTML = pageContent;
+    if (document.body.classList.contains('bird-mode')) {
+      const profileLink = mount.querySelector('.profile-link');
+      profileLink.href = 'index.html';
+      profileLink.setAttribute('aria-label', 'Go to Page 1');
+      profileLink.title = 'Home';
+    }
     if (document.body.classList.contains('bird-mode')) addBirdKingdomArt();
     document.querySelectorAll('.pub').forEach((publication) => {
       publication.addEventListener('pointerenter', () => publication.classList.add('is-hovered'));

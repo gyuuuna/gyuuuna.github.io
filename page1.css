@@ -1,7 +1,16 @@
 /* Match page2 layout and styling; page1 only hides the bird illustrations. */
 @import url("page2.css");
 
-header .profile-bird,
 .section-birds {
   display: none;
+}
+
+header .profile-link {
+  display: block;
+  flex: 0 0 auto;
+  transition: transform 160ms ease;
+}
+
+header .profile-link:hover {
+  transform: scale(1.06);
 }
