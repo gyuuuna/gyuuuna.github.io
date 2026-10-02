@@ -2,10 +2,11 @@
 @import url("page2.css");
 
 body:not(.bird-mode) {
-  background-color: #f6f0e4;
+  background-color: #f3ead8;
   background-image:
-    radial-gradient(ellipse at 18% 8%, rgb(255 255 255 / 74%), transparent 44%),
-    radial-gradient(ellipse at 82% 76%, rgb(222 204 169 / 16%), transparent 55%);
+    radial-gradient(ellipse at 14% 8%, rgb(255 255 255 / 96%), transparent 52%),
+    radial-gradient(ellipse at 88% 72%, rgb(218 190 143 / 34%), transparent 56%),
+    linear-gradient(135deg, #fffdf7 0%, #f5eddf 52%, #eee0c8 100%);
   background-attachment: fixed;
 }
 
