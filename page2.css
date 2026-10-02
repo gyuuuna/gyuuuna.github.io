@@ -318,19 +318,35 @@ body { padding-top: 56px; }
 
 /* Mint bird kingdom, page 2 only */
 body.bird-mode {
-  --bg: #9ae7c5;
+  --bg: #c5f0d8;
   --text: #173c33;
   --muted: #4c7564;
   --accent: #17755d;
   --border: #69c99a;
   --tag-bg: #c1f0d8;
   background:
-    radial-gradient(ellipse at 10% 12%, rgb(255 255 255 / 24%), transparent 38%),
-    radial-gradient(ellipse at 92% 62%, rgb(72 201 139 / 24%), transparent 42%),
-    var(--bg);
+    radial-gradient(ellipse at 12% 8%, rgb(255 255 255 / 82%), transparent 42%),
+    radial-gradient(ellipse at 85% 22%, rgb(103 213 163 / 38%), transparent 40%),
+    radial-gradient(ellipse at 28% 72%, rgb(165 234 194 / 54%), transparent 48%),
+    radial-gradient(ellipse at 92% 88%, rgb(227 250 224 / 78%), transparent 42%),
+    linear-gradient(135deg, #e4f8e6 0%, #b9ebd0 48%, #d4f3da 100%);
   background-attachment: fixed;
 }
-body.bird-mode .container { position: relative; }
+body.bird-mode::before {
+  content: "";
+  position: fixed;
+  inset: -8%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .14;
+  filter: blur(16px);
+  background:
+    linear-gradient(132deg, transparent 43%, #285f45 44%, #285f45 45%, transparent 46%) 4% 0 / 280px 360px no-repeat,
+    linear-gradient(48deg, transparent 43%, #285f45 44%, #285f45 45%, transparent 46%) 12% 8% / 240px 310px no-repeat,
+    linear-gradient(145deg, transparent 43%, #285f45 44%, #285f45 45%, transparent 46%) 98% 4% / 330px 410px no-repeat,
+    linear-gradient(35deg, transparent 43%, #285f45 44%, #285f45 45%, transparent 46%) 91% 10% / 270px 340px no-repeat;
+}
+body.bird-mode .container { position: relative; z-index: 1; }
 body.bird-mode .container > :not(.kingdom-bird) { position: relative; z-index: 1; }
 body.bird-mode .profile-bird {
   animation: parrot-arrive 1.1s cubic-bezier(.2,.8,.25,1) .15s both;
