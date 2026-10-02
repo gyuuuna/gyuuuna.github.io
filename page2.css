@@ -101,18 +101,6 @@
       margin-bottom: 20px;
     }
 
-    .section-birds {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      bottom: auto;
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      transform: translateY(-50%);
-    }
-
-    h2 { min-height: 50px; padding-right: 88px; }
 
     /* About */
     .about p {
@@ -309,8 +297,6 @@
     @media (max-width: 540px) {
       header { flex-direction: column; gap: 18px; }
       header .profile-bird { width: 76px; height: 76px; margin-top: -8px; }
-      .section-birds { width: 40px; height: 40px; }
-      h2 { min-height: 50px; padding-right: 86px; }
       .pub-title-row { grid-template-columns: 1fr; gap: 3px; }
       .keywords { text-align: left; }
       .topic-tags {
@@ -329,3 +315,68 @@ body { padding-top: 56px; }
 .mode-toggle:hover { transform: translateY(-1px); text-decoration: none; }
 
 .mode-toggle img { display: block; width: 30px; height: 30px; object-fit: contain; }
+
+/* Mint bird kingdom, page 2 only */
+body.bird-mode {
+  --bg: #9ae7c5;
+  --text: #173c33;
+  --muted: #4c7564;
+  --accent: #17755d;
+  --border: #69c99a;
+  --tag-bg: #c1f0d8;
+  background:
+    radial-gradient(ellipse at 10% 12%, rgb(255 255 255 / 24%), transparent 38%),
+    radial-gradient(ellipse at 92% 62%, rgb(72 201 139 / 24%), transparent 42%),
+    var(--bg);
+  background-attachment: fixed;
+}
+body.bird-mode .container { position: relative; }
+body.bird-mode .container > :not(.kingdom-bird) { position: relative; z-index: 1; }
+body.bird-mode .profile-bird {
+  animation: parrot-arrive 1.1s cubic-bezier(.2,.8,.25,1) .15s both;
+}
+@keyframes parrot-arrive {
+  from { opacity: 0; transform: translateX(-54px) scale(.72) rotate(-9deg); }
+  to { opacity: 1; transform: translateX(0) scale(1) rotate(0); }
+}
+.kingdom-bird {
+  position: absolute;
+  z-index: 0;
+  width: min(310px, calc((100vw - 800px) / 2 - 12px));
+  height: auto;
+  pointer-events: none;
+  opacity: 0;
+  --bird-opacity: .7;
+  --bird-start-x: -38px;
+  --bird-tilt: 0deg;
+  filter: drop-shadow(0 14px 16px rgb(18 92 110 / 18%));
+}
+.kingdom-bird--left { left: calc((800px - 100vw) / 2 + 12px); }
+.kingdom-bird--right { right: calc((800px - 100vw) / 2 + 12px); --bird-start-x: 38px; }
+.kingdom-bird--shoebill { width: min(260px, calc((100vw - 800px) / 2 - 12px)); }
+.kingdom-bird--macaw-flock { width: min(310px, calc((100vw - 800px) / 2 - 12px)); }
+.kingdom-bird--toucan-mother-nest { width: min(270px, calc((100vw - 800px) / 2 - 12px)); }
+.kingdom-bird.is-visible {
+  animation: bird-sneak-in .9s cubic-bezier(.18,.76,.26,1) var(--bird-delay) both;
+}
+@keyframes bird-sneak-in {
+  from { opacity: 0; transform: translateX(var(--bird-start-x)) translateY(7px) scale(.96) rotate(var(--bird-tilt)); }
+  to { opacity: var(--bird-opacity); transform: translateX(0) translateY(0) scale(1) rotate(var(--bird-tilt)); }
+}
+@media (max-width: 1049px) {
+  .kingdom-bird {
+    width: clamp(90px, 20vw, 140px);
+    --bird-opacity: .22;
+    filter: none;
+  }
+  .kingdom-bird--left { left: 0; }
+  .kingdom-bird--right { right: 0; }
+  .kingdom-bird--shoebill { width: clamp(100px, 21vw, 150px); }
+  .kingdom-bird--macaw-flock { width: clamp(100px, 22vw, 155px); }
+  .kingdom-bird--toucan-mother-nest { width: clamp(95px, 21vw, 145px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.bird-mode .profile-bird { animation: none; }
+  .kingdom-bird { opacity: var(--bird-opacity); transform: none; }
+  .kingdom-bird.is-visible { animation: none; }
+}
