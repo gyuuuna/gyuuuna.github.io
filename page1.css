@@ -1,12 +1,11 @@
-/* Match page2 layout; page1 uses a warm paper background and hides bird art. */
+/* Match page2 layout; page1 uses a warm ivory gradient and hides bird art. */
 @import url("page2.css");
 
 body:not(.bird-mode) {
   background-color: #f6f0e4;
   background-image:
     radial-gradient(ellipse at 18% 8%, rgb(255 255 255 / 74%), transparent 44%),
-    radial-gradient(ellipse at 82% 76%, rgb(222 204 169 / 16%), transparent 55%),
-    repeating-linear-gradient(0deg, rgb(129 104 64 / 2%) 0, rgb(129 104 64 / 2%) 1px, transparent 1px, transparent 4px);
+    radial-gradient(ellipse at 82% 76%, rgb(222 204 169 / 16%), transparent 55%);
   background-attachment: fixed;
 }
 
